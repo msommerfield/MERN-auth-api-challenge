@@ -15,3 +15,9 @@ const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log('App is up and running on port ' + PORT)
 })
+
+app.use(express.static(__dirname + '/client/build/'));
+
+app.get('/', (req,res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
+  })
